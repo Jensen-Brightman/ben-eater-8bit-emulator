@@ -21,7 +21,8 @@ typedef struct {
 // METHODS
 Ben_Eater_CPU* create_cpu();
 ERR_CODE cpu_print_memory(Ben_Eater_CPU* cpu);
-
+ERR_CODE cpu_cycle(Ben_Eater_CPU* cpu);
+ERR_CODE cpu_print_state(const Ben_Eater_CPU* cpu);
 
 
 // UTILS
