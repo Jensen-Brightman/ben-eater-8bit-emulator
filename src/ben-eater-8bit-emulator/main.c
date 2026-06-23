@@ -27,6 +27,8 @@ ERR_CODE example_count_to_n(uint8_t n) {
 		result = cpu_cycle(cpu);
 	}
 
+	cpu_free(cpu);
+
 	RET_SUCCESS();
 }
 
@@ -50,6 +52,8 @@ ERR_CODE example_add(uint8_t a, uint8_t b) {
 		result = cpu_cycle(cpu);
 	}
 
+	cpu_free(cpu);
+
 	RET_SUCCESS();
 }
 
@@ -72,6 +76,10 @@ ERR_CODE example_sub(uint8_t a, uint8_t b) {
 	while (result != CPU_HLT) {
 		result = cpu_cycle(cpu);
 	}
+
+	cpu_print_state(cpu);
+
+	cpu_free(cpu);
 
 	RET_SUCCESS();
 }
@@ -109,6 +117,8 @@ ERR_CODE example_Fibonacci() {
 
 	cpu_print_state(cpu);
 
+	cpu_free(cpu);
+
 	RET_SUCCESS();
 }
 
@@ -117,7 +127,7 @@ int main() {
 
 	//example_count_to_n(10);
 	//example_add(10, 4);
-	//example_sub(10, 4);
+	//example_sub(10, 11);
 
 	example_Fibonacci();
 

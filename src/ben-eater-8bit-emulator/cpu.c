@@ -75,8 +75,8 @@ ERR_CODE cpu_cycle(Ben_Eater_CPU* cpu) {
 		break;
 	case OP_SUB:
 		cpu->RB = cpu->mem[operand];
-		cpu->RA = cpu->RA - cpu->RB;
-		cpu->C_flag = cpu->RA < cpu->RB;
+		cpu->C_flag = (cpu->RA >= cpu->RB);
+		cpu->RA = cpu->RA - cpu->RB;		
 		cpu->Z_flag = cpu->RA == 0;
 		cpu->PC++;
 		break;
@@ -111,9 +111,6 @@ ERR_CODE cpu_cycle(Ben_Eater_CPU* cpu) {
 	RET_SUCCESS();
 }
 
-
-
-
 void print_8_binary(uint8_t n) {
 	for (int i = 7;i >= 0;i--) {
 		int bit = (n >> i) & 1;
@@ -123,4 +120,8 @@ void print_8_binary(uint8_t n) {
 			printf(" ");
 		}
 	}
+}
+
+void cpu_free(Ben_Eater_CPU* cpu) {
+	free(cpu);
 }
