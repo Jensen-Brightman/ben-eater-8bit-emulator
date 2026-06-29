@@ -4,7 +4,7 @@
 ERR_CODE example_count_to_n(uint8_t n) {
 	CHK_INDEX(n, 256);
 
-	Ben_Eater_CPU* cpu = create_cpu();
+	Ben_Eater_CPU* cpu = create_cpu(1, true);
 
 	cpu->mem[0] = INSTR(OP_LDA, 13);
 	cpu->mem[1] = INSTR(OP_ADD, 15);
@@ -36,7 +36,7 @@ ERR_CODE example_add(uint8_t a, uint8_t b) {
 	CHK_INDEX(a, 256);
 	CHK_INDEX(b, 256);
 
-	Ben_Eater_CPU* cpu = create_cpu();
+	Ben_Eater_CPU* cpu = create_cpu(1, true);
 
 	cpu->mem[0] = INSTR(OP_LDA, 14);
 	cpu->mem[1] = INSTR(OP_ADD, 15);
@@ -61,7 +61,7 @@ ERR_CODE example_sub(uint8_t a, uint8_t b) {
 	CHK_INDEX(a, 256);
 	CHK_INDEX(b, 256);
 
-	Ben_Eater_CPU* cpu = create_cpu();
+	Ben_Eater_CPU* cpu = create_cpu(1, true);
 
 	cpu->mem[0] = INSTR(OP_LDA, 14);
 	cpu->mem[1] = INSTR(OP_SUB, 15);
@@ -85,7 +85,7 @@ ERR_CODE example_sub(uint8_t a, uint8_t b) {
 }
 
 ERR_CODE example_Fibonacci() {
-	Ben_Eater_CPU* cpu = create_cpu();
+	Ben_Eater_CPU* cpu = create_cpu(2, true);
 
 	cpu->mem[0] = INSTR(OP_LDA, 15);
 	cpu->mem[1] = INSTR(OP_ADD, 14);
@@ -114,8 +114,6 @@ ERR_CODE example_Fibonacci() {
 	while (result != CPU_HLT) {
 		result = cpu_cycle(cpu);
 	}
-
-	cpu_print_state(cpu);
 
 	cpu_free(cpu);
 
