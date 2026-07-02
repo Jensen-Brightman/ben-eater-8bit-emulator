@@ -1,5 +1,5 @@
 # Ben Eater 8-Bit Emulator
-A simple C emulator for Ben Eater's standard 8-bit CPU.
+A simple C emulator for Ben Eater's standard 8-bit CPU.  
 **Reference:** [Ben Eater's CPU Video Series](https://www.youtube.com/c/BenEater)
 
 ## Features
