@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ben-eater-8bit-emulator.vcxproj" Id="f1433938-a58b-4663-a977-7c6a96dd2924" />
+</Solution>
